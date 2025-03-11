@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.kiec.DTO.BranchDTO;
 import org.kiec.DTO.GitHubRepositoryDTO;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
@@ -15,6 +16,7 @@ import java.util.List;
 @RegisterProvider(UserNotFoundExceptionProvider.class)
 @ApplicationScoped
 @RegisterRestClient
+@ClientHeaderParam(name = "X-GitHub-Api-Version", value = "2022-11-28")
 public interface GitHubClient {
 
     @GET
